@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>ROI</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	
+	
+	
+	
+	
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/azzara.min.css">
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body>
+<div class="wrapper">
+
+	<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+				
+					<div class="page-header">
+						<h4 class="page-title">ROI</h4>
+						
+					</div>
+					<div class="row">
+						
+						<div class="col-md-6">
+							
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">EQUIPMENT COSTS</div>
+								</div>
+								<div class="card-body" id="form">
+									<div class="form-group">
+										<label for="ast">AST</label>
+										<select class="form-control" id="ast" name="ast" onchange="changeManager()">
+											<option value="AEB">AEB</option>
+											<option value="LDW">LDW</option>
+											<option value="VIDEO">VIDEO</option>
+											
+										</select>
+									</div>
+									
+									
+									
+									<div class="form-group">
+										<label for="trucks">Number of trucks</label>
+										<input type="text" class="form-control input-square" id="trucks" placeholder="100" name="trucks">
+									</div>
+									<div class="form-group">
+										<label for="ce">Unit cost of the AST</label>
+										<input type="text" class="form-control input-square" id="ce" placeholder="$500" name="ce">
+									</div>
+									
+									<div class="form-group">
+										<label for="tf">Will the AST be financed(yes or no)?</label>
+										<select class="form-control" id="tf" name="tf">
+											<option>YES</option>
+											<option>NO</option>
+											
+											
+										</select>
+									</div>
+									
+									
+									
+									<div class="form-group">
+										<div class="card-title">Driver</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="ds">Salary/hour</label>
+										<input type="text" class="form-control input-square" id="ds" placeholder="$30" name="ds">
+									</div>
+									
+									<div class="form-group">
+										<div class="card-title">Manager</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="ms">Salary/hour</label>
+										<input type="text" class="form-control input-square" id="ms" placeholder="$30" name="ms">
+									</div>
+									
+									
+									
+									<div class="form-group">
+										<div class="card-title">Analysis period -5 years</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="af">Year Fee</label>
+										<input type="text" class="form-control input-square" id="af" name="af" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="dr">Discount rate</label>
+										<select class="form-control" id="dr" name="dr">
+											<option>0%</option>
+											<option>3%</option>
+											<option>7%</option>
+											
+										</select>
+									</div>
+								</div>	
+								<div class="card-header">
+									<div class="card-title">Benefits</div>
+								</div>
+								<div class="card-body">
+									<div class="form-group">
+										<label for="ins">Please select whether you are insured or self insured</label>
+										<select class="form-control" id="ins" name="ins" onchange="changeDeductible()">
+											<option>insured</option>
+											<option>self insured</option>
+											
+											
+										</select>
+									</div>
+									<div class="form-group">
+										<div class="card-title">Deductible</div>
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="dl">Liability</label>
+										<select class="form-control" id="dl" name="dl">
+											<option>L1</option>
+											<option>L2</option>
+											<option>L3</option>
+											<option>L4</option>
+											<option>L5</option>
+										</select>
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="dc">Cargo</label>
+										<select class="form-control" id="dc" name="dc">
+											<option>C1</option>
+											<option>C2</option>
+											<option>C3</option>
+											<option>C4</option>
+											<option>C5</option>
+											
+											
+										</select>
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="do">Physical Damage</label>
+										<select class="form-control" id="do" name="do">
+											<option>PD1</option>
+											<option>PD2</option>
+											<option>PD3</option>
+											<option>PD4</option>
+											<option>PD5</option>
+											
+											
+										</select>
+									</div>
+									
+									<div class="form-group">
+										<label for="total">Total</label>
+										<input type="text" class="form-control input-square" id="total" name="total" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="squareInput">Total vehicle miles traveled per year(optional)</label>
+										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="YC">Number of years of crash data</label>
+										<input type="text" class="form-control input-square" id="YC" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="PDOC">Property damage only crashes</label>
+										<input type="text" class="form-control input-square" id="PDOC" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="InjC">Injury crashes</label>
+										<input type="text" class="form-control input-square" id="InjC" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="KC">Fatal crashes</label>
+										<input type="text" class="form-control input-square" id="KC" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="CPDOC">Cost of property Damage Only Crashes</label>
+										<input type="text" class="form-control input-square" id="CPDOC" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="CInjC">Cost of Injurey Crashes</label>
+										<input type="text" class="form-control input-square" id="CInjC" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="CKC">Cost of Fatal Crashes</label>
+										<input type="text" class="form-control input-square" id="CKC" placeholder="$30">
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="AvCC">Average crash costs/year</label>
+										<input type="text" class="form-control input-square" id="AvCC" placeholder="$30">
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="HL">Liability</label>
+										<select class="form-control" id="HL">
+											<option>LOW</option>
+											<option>MEDIUM</option>
+											<option>HIGH</option>
+											
+										</select>
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="ER">Expected Reduction In selected Crashes</label>
+										<input type="text" class="form-control input-square" id="ER" placeholder="$30">
+									</div>
+									
+									
+									
+									<div class="form-group">
+										<label for="AvRCC">Average reduction crash cost/year</label>
+										<input type="text" class="form-control input-square" id="AvRCC" placeholder="$30">
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="HC">Do you move high value cargo?</label>
+										<select class="form-control" id="HC">
+											<option>NO</option>
+											<option>LOW</option>
+											<option>HIGH</option>
+											
+										</select>
+									</div>
+									
+									
+									<div class="form-group">
+										<label for="CHC">Estimated additional value of high Cargo</label>
+										<input type="text" class="form-control input-square" id="CHC" placeholder="$30">
+									</div>
+									
+									
+									
+									<div class="form-group">
+										<label for="AdCC">Average reduction crash cost/year</label>
+										<input type="text" class="form-control input-square" id="AdCC" placeholder="$30">
+									</div>
+									
+									
+									
+									
+									
+						
+								</div>
+								<div class="card-action">
+									<button class="btn btn-success" onclick="getResult()">Result</button>
+									<button class="btn btn-danger"  onclick="clearData()">Clear</button>
+								</div>
+							</div>
+							
+								
+						</div>
+						
+						
+						<div class="col-md-6">
+							
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Result</div>
+								</div>
+								<div class="card-body">
+									
+								
+									<table class="table table-bordered table-bordered-bd-warning mt-4">
+										<thead>
+											<tr>
+												<th scope="col" colspan="2">Cost/Truck</th>
+												
+												
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Net present value</td>
+												<td id="NPV"></td>
+												
+												
+											</tr>
+											<tr>
+												<td>AST EQUIPMENT</td>
+												<td id="ASTEQUIPMENT"></td>
+												
+
+											</tr>
+											<tr>
+												<td>Training</td>
+												<td id="Training"></td>
+											
+												
+											</tr>
+											<tr>
+												<td>Maintenance</td>
+												<td id="Maintenance"></td>
+											
+												
+											</tr>
+											<tr>
+												<td>Coaching</td>
+												<td id="Coaching"></td>
+												
+												
+											</tr>
+											<tr>
+												<td>Annual Fee</td>
+												<td id="AnnualFee"></td>
+												
+												
+											</tr>
+										</tbody>
+									</table>
+									
+								</div>
+							</div>
+							
+						
+						
+						
+							
+							
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Result</div>
+								</div>
+								<div class="card-body">
+									
+								
+									<table class="table table-bordered table-bordered-bd-warning mt-4">
+										<thead>
+											<tr>
+												<th >NPV Benefits</th>
+												<th id="NPVBenefits"></th>
+												
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>NPV Costs</td>
+												<td id="NPVCosts"></td>
+												
+												
+											</tr>
+											<tr>
+												<td>NPV Benefit - Costs</td>
+												<td id="NPVB_C"></td>
+												
+
+											</tr>
+											<tr>
+												<td>Benefit/Cost</td>
+												<td id="B_C"></td>
+												
+												
+											</tr>
+											<tr>
+												<td>Payback Period </td>
+												<td id="PaybackPeriod"></td>
+											
+												
+											</tr>
+											
+										</tbody>
+									</table>
+									
+								</div>
+							
+							</div>
+							
+							
+							
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Result</div>
+								</div>
+								<div class="card-body">
+									
+								
+									<table class="table table-bordered table-bordered-bd-warning mt-4">
+										<thead>
+											<tr>
+												<th scope="col" colspan="2">Crash Costs/Year - All Trucks</th>
+												
+												
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Average</td>
+												<td id="Average"></td>
+												
+												
+											</tr>
+											<tr>
+												<td>Average Reduction Cost </td>
+												<td id="ARC"></td>
+												
+
+											</tr>
+											<tr>
+												<td>Adjusted Average due to Cargo</td>
+												<td id="AADC"></td>
+												
+												
+											</tr>
+											
+											
+										</tbody>
+									</table>
+									
+								</div>
+							
+							</div>
+						
+							<div class="card card-info card-annoucement card-round">
+								<div class="card-body text-center">
+									<div class="card-opening"></div>
+									<div class="card-opening">
+										Installing the AST in all of your trucks will results in
+
+									</div>
+									<div class="card-detail">
+										<div class="btn btn-light btn-rounded" id="B_C2">
+										
+										
+											
+										</div>
+									</div>
+									
+									<div class="card-opening">
+										dollars for every $1.00 spent on the AST
+
+									</div>
+								</div>
+							</div>
+							
+							<div class="card card-info card-annoucement card-round">
+								<div class="card-body text-center">
+									<div class="card-opening"></div>
+									<div class="card-opening">
+										You will recuperate your investment in 
+
+									</div>
+									<div class="card-detail">
+										<div class="btn btn-light btn-rounded" id="PaybackPeriod2">
+										
+										
+										
+										</div>
+									</div>
+									
+									<div class="card-opening">
+										months
+
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+	</div>
+			
+</div>	
+		
+<!-- Fonts and icons -->
+	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['assets/css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+						<!--   Core JS Files   -->
+	<script src="assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="assets/js/core/popper.min.js"></script>
+	<script src="assets/js/core/bootstrap.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<!-- Azzara JS -->
+	<script src="assets/js/ready.min.js"></script>
+	<!-- Azzara DEMO methods, don't include it in your project! -->
+	<script src="assets/js/setting-demo.js"></script>		
+						
+						
+	<script>
+
+    $(document).ready(function () {
+        var ms = $("#ms");
+        ms.attr("readOnly","true");
+        ms.css('background-color','#DEDEDE');
+		
+		//var dl=$("#dl");
+		//dl.attr("disabled","true");
+       // dl.css('background-color','#DEDEDE');
+		
+		
+		//var dc=$("#dc");
+		//dc.attr("disabled","true");
+       // dc.css('background-color','#DEDEDE');
+		
+		//var do1 =$("#do");
+		//do1.attr("disabled","true");
+       // do1.css('background-color','#DEDEDE');
+		
+		var total=$("#total");
+		total.attr("disabled","true");
+        total.css('background-color','#DEDEDE');
+		
+		var AvCC=$("#AvCC");
+		AvCC.attr("disabled","true");
+        AvCC.css('background-color','#DEDEDE');
+		
+		var AvRCC=$("#AvRCC");
+		AvRCC.attr("disabled","true");
+        AvRCC.css('background-color','#DEDEDE');
+		
+		var AdCC=$("#AdCC");
+		AdCC.attr("disabled","true");
+        AdCC.css('background-color','#DEDEDE');
+		
+		
+    });
+
+    
+    function changeManager(){
+        var ast = $("#ast").val();
+       
+        var ms = $("#ms");
+        if(ast!='VIDEO'){
+            ms.attr("readOnly","true");
+            ms.css('background-color','#DEDEDE');
+        } else {
+            ms.attr("readOnly",false);
+            ms.css('background-color','#FFFFFF');
+        }
+    }
+	
+	function changeDeductible(){
+		var ins=$("#ins").val();
+		var dl=$("#dl");
+		var dc=$("#dc");
+		var do1 =$("#do");
+		var total=$("#total");
+        if(ins=='self insured'){
+            dl.attr("disabled","true");
+			dl.css('background-color','#DEDEDE');
+			
+			dc.attr("disabled","true");
+			dc.css('background-color','#DEDEDE');
+			
+			do1.attr("disabled","true");
+			do1.css('background-color','#DEDEDE');
+			
+			//total.attr("disabled","true");
+			//total.css('background-color','#DEDEDE');
+        } else {
+            dl.attr("disabled",false);
+            dl.css('background-color','#FFFFFF');
+			
+			dc.attr("disabled",false);
+            dc.css('background-color','#FFFFFF');
+			
+			do1.attr("disabled",false);
+            do1.css('background-color','#FFFFFF');
+			
+			//total.attr("disabled",false);
+            //total.css('background-color','#FFFFFF');
+			
+			
+        }
+	}
+	
+
+
+</script>	
+
+<script>
+	 function getResult(){
+		//alert(toPoint("7%"));
+		var point=toPoint("7%");
+		var APY = ((1+(point / 12)) ^ (3*12)-1) / ((point/12) * (1+((point/12) ^12*3))) * 12;
+		//alert(APY);
+		var CE=$("#ce").val();
+		//alert(CE);
+		
+		var tf=$("#tf").val();
+		//alert(tf);
+		var ATSY1;
+		var ATSY2;
+		var ATSY3;
+		var ATSY4;
+		if(tf=="YES"){
+			 ATSY1 = CE * (APY- toPoint("33.33%") * toPoint("36%"));
+		
+		
+			 ATSY2= CE * (APY- toPoint("44.45%")* toPoint("36%"));
+		
+			 ATSY3= CE * (APY- toPoint("14.81%")* toPoint("36%"));
+		
+			 ATSY4 =CE * (-toPoint("7.41%") * toPoint("36%"));
+		}else if(tf=="NO"){
+			ATSY1 = CE * (1- toPoint("33.33%") * toPoint("36%"));
+			ATSY2= CE * (-toPoint("36%") * toPoint("36%"));
+			ATSY3= CE * (-toPoint("14.81%")* toPoint("36%"));
+			ATSY4 =CE * (-toPoint("7.41%") * toPoint("36%"));
+		}
+		
+		
+		//alert(ATSY1);
+		
+		//alert(ATSY2);
+		//alert(ATSY3);
+		//alert(ATSY4);
+		
+		var ds=$("#ds").val();
+		
+		
+		var TRA = ds * (1+ toPoint("42%")) *(1+toPoint("27%"));
+		
+		var MA=CE*toPoint("1%");
+		
+		var ms=$("#ms").val();
+		var TMS=ms*(1+ toPoint("42%")) *(1+toPoint("27%"));
+		
+		var COY= (TMS + TRA) * 0.76;
+		
+		//alert(ds);
+		//alert(TRA);
+		//alert(MA);
+		console.log("ms:"+ms);
+		//alert(TMS);
+		//alert(COY);
+		
+		var AF=$("#af").val();
+		
+		var DR=toPoint($("#dr").val());
+		
+		var ATSY5=0;
+		var ATS = ATSY1 /(1+DR) + ATSY2 /(1+DR) ^2 + ATSY3 /(1+DR)^3 + ATSY4 /(1+DR)^4;
+		var NPVASTY1= ATSY1+ TRA +MA+COY+AF;
+		var NPVASTY2= ATSY2+ TRA +MA+COY+AF;
+		var NPVASTY3= ATSY3+ TRA +MA+COY+AF;
+		var NPVASTY4= ATSY4+ TRA +MA+COY+AF;
+		var NPVASTY5= ATSY5+ TRA +MA+COY+AF;
+		
+		//alert("af:"+AF);
+		console.log("dr:"+DR);
+		console.log("1+dr:"+(1+DR));
+		//alert(ATS);
+		//alert(NPVASTY1);
+		//alert(NPVASTY2);
+		//alert(NPVASTY3);
+		//alert(NPVASTY4);
+		//alert(NPVASTY5);
+		
+		var NPV = (NPVASTY1 /(1+DR)) + (NPVASTY2 /(1+DR)^2) + (NPVASTY3 /(1+DR)^3) + (NPVASTY4 /(1+DR)^4) + (NPVASTY5 /(1+DR)^5);
+		var Training = (TRA /(1+DR)) + (TRA /(1+DR)^2) + (TRA /(1+DR)^3) + (TRA /(1+DR)^4) + (TRA /(1+DR)^5);
+		var Maintenance = (MA /(1+DR)) + (MA /(1+DR)^2) + (MA /(1+DR)^3) + (MA /(1+DR)^4) + (MA /(1+DR)^5);
+		var Coaching = (COY /(1+DR)) + (COY /(1+DR)^2) + (COY /(1+DR)^3) + (COY /(1+DR)^4) + (COY /(1+DR)^5);
+		var AnnualFee = (AF/(1+DR)) + (AF/(1+DR)^2) + (AF/(1+DR)^3) + (AF/(1+DR)^4) + (AF/(1+DR)^5);
+		
+		console.log(NPV);
+		//alert(Training);
+		//alert(Maintenance);
+		//alert(Coaching);
+		//alert(AnnualFee);
+		
+		$("#NPV").text(NPV.toFixed(2));
+		if(tf=='YES'){
+			$("#ASTEQUIPMENT").text("finance");
+		}else{
+			$("#ASTEQUIPMENT").text("not finance");
+		}
+		
+		$("#Training").text(Training.toFixed(2));
+		$("#Maintenance").text(Maintenance.toFixed(2));
+		$("#Coaching").text(Coaching.toFixed(2));
+		$("#AnnualFee").text(AnnualFee.toFixed(2));
+		
+		
+		var ins=$("#ins").val();
+		var dl=0;
+		var dc=0;
+		var do1=0;
+		var YC=$("#YC").val();
+		var PDOC=$("#PDOC").val();
+		var InjC=$("#InjC").val();
+		var KC=$("#KC").val();
+		var CPDOC=$("#CPDOC").val();
+		var CInjC=$("#CInjC").val();
+		var CKC=$("#CKC").val();
+		var ast = $("#ast").val();
+		
+		console.log(ast);
+		console.log(ins);
+		//console.log("dl:"+dl);
+		//console.log("dc:"+dc);
+		//console.log("do1:"+do1);
+		//console.log("YC:"+YC);
+		//console.log("PDOC:"+PDOC);
+		//console.log("InjC:"+InjC);
+		//console.log("KC:"+KC);
+		
+		console.log("CPDOC:"+CPDOC);
+		console.log("CInjC:"+CInjC);
+		console.log("CKC:"+CKC);
+		
+		
+		if(ins=='insured'){
+			dl=$("#dl").val();
+			dc=$("#dc").val();
+			do1=$("#do").val();
+			if(dl=='L1'){
+				dl=5000;
+			}else if(dl=='L2'){
+				dl=10000;
+			}else if(dl=='L3'){
+				dl=15000;
+			}else if(dl=='L4'){
+				dl=20000;
+			}else if(dl=='L5'){
+				dl=25000;
+			}
+			
+			if(dc=='C1'){
+				dc=5000;
+			}else if(dc=='C2'){
+				dc=10000;
+			}else if(dc=='C3'){
+				dc=15000;
+			}else if(dc=='C4'){
+				dc=20000;
+			}else if(dc=='C5'){
+				dc=25000;
+			}
+			
+			if(do1=='PD1'){
+				do1=5000;
+			}else if(do1=='PD2'){
+				do1=10000;
+			}else if(do1=='PD3'){
+				do1=15000;
+			}else if(do1=='PD4'){
+				do1=20000;
+			}else if(do1=='PD5'){
+				do1=25000;
+			}
+			var total=dl+dc+do1;
+			console.log("total:"+total);
+			$("#total").val(total);
+			if(CPDOC.length<=0){
+				CPDOC=43124;
+			}
+			if(CInjC.length<=0){
+				CInjC=217675;
+			}
+			if(CKC.length<=0){
+				CKC=4340160;
+			}
+			
+			
+		}else{
+			if(ast=='LDW'){
+				if(CPDOC.length<=0){
+					CPDOC=90898;
+				}
+				if(CInjC.length<=0){
+					CInjC=114415;
+				}
+				if(CKC.length<=0){
+					CKC=289953;
+				}
+				//CPDOC=90898;
+				//CInjC=114415;
+				//CKC=289953;
+			}else if(ast=='AEB'){
+				if(CPDOC.length<=0){
+					CPDOC=82964;
+				}
+				if(CInjC.length<=0){
+					CInjC=107643;
+				}
+				if(CKC.length<=0){
+					CKC=198847;
+				}
+				//CPDOC=82964;
+				//CInjC=107643;
+				//CKC=198847;
+			}else if(ast=='VIDEO'){
+				if(CPDOC.length<=0){
+					CPDOC=86984;
+				}
+				if(CInjC.length<=0){
+					CInjC=110774;
+				}
+				if(CKC.length<=0){
+					CKC=247392;
+				}
+				//CPDOC=86984;
+				//CInjC=110774;
+				//CKC=247392;
+			}
+			
+			
+		}
+		
+		//console.log("--------------------")
+		//console.log("dl:"+dl);
+		//console.log("dc:"+dc);
+		//console.log("do1:"+do1);
+		
+		
+		console.log("CPDOC:"+CPDOC);
+		console.log("CInjC:"+CInjC);
+		console.log("CKC:"+CKC);
+		
+		var AvCC=(PDOC*CPDOC+InjC*CInjC+KC*CKC)/YC;
+		$("#AvCC").val(AvCC.toFixed(2));
+		
+		console.log("AvCC:"+AvCC);
+		
+		var HL=$("#HL").val();
+		
+		var ER=$("#ER").val();
+		console.log("HL:"+HL);
+		console.log("ER:"+ER);
+		if(ER.length<=0){
+		
+			if(ast=='LDW'){
+				if(HL=='LOW'){
+					ER=0.3;
+				}else if(HL=='MEDIUM'){
+					ER=0.47;
+				}else if(HL=='HIGH'){
+					ER=0.385;
+				}	
+			}else if(ast=='AEB'){
+				if(HL=='LOW'){
+					ER=0.16;
+				}else if(HL=='MEDIUM'){
+					ER=0.28;
+				}else if(HL=='HIGH'){
+					ER=0.22;
+				}	
+			}else if(ast=='VIDEO'){
+				if(HL=='LOW'){
+					ER=0.2;
+				}else if(HL=='MEDIUM'){
+					ER=0.52;
+				}else if(HL=='HIGH'){
+					ER=0.36;
+				}	
+			}
+		}
+		
+		console.log("HL:"+HL);
+		console.log("ER:"+ER);
+		var AvRCC=AvCC*ER;
+		$("#AvRCC").val(AvRCC.toFixed(2));
+		
+		console.log("AvRCC:"+AvRCC);
+		
+		var HC=$("#HC").val();
+		var CHC=$("#CHC").val();
+		
+		console.log("HC:"+HC);
+		console.log("CHC:"+CHC);
+		if(CHC.length<=0){
+			if(HC=='NO'){
+				CHC=0;
+			}else if(HC=='LOW'){
+				CHC=60000;
+			}else if(HC=='HIGH'){
+				CHC=1000000;
+			}
+		}
+		console.log("HC:"+HC);
+		console.log("CHC:"+CHC);
+		var AdCC=CHC*ER/YC+AvCC;
+		$("#AdCC").val(AdCC.toFixed(2));
+		console.log("AdCC:"+AdCC);
+		
+		
+		var trucks=$("#trucks").val();
+		
+		var NPVBY = AdCC * trucks;
+		var NPVCY1= NPVASTY1 * trucks;
+		var NPVCY2 = NPVASTY2 * trucks;
+		var NPVCY3 = NPVASTY3 * trucks;
+		var NPVCY4 = NPVASTY4 * trucks;
+		var NPVCY5 = NPVASTY5 * trucks;
+		
+		console.log("trucks:"+trucks);
+		console.log("NPVBY:"+NPVBY);
+		console.log("NPVCY1:"+NPVCY1);
+		console.log("NPVCY2:"+NPVCY2);
+		console.log("NPVCY3:"+NPVCY3);
+		console.log("NPVCY4:"+NPVCY4);
+		console.log("NPVCY5:"+NPVCY5);
+		
+		var NPVAST = NPVASTY1/(1+DR) + NPVASTY2/(1+(1+DR)^2)+ NPVASTY3/(1+DR)^3 + NPVASTY4/(1+DR)^4 +NPVASTY5/(1+DR)^5;
+		
+		console.log("NPVAST:"+NPVAST);
+		
+		var NPVBenefits = NPVBY/(1+DR) + NPVBY/(1+DR)^2 + NPVBY/(1+DR)^3 + NPVBY/(1+DR)^4 + NPVBY/(1+DR)^5;
+		var NPVCosts = (NPVCY1/(1+DR))+ (NPVCY2/(1+DR)^2)+ (NPVCY3/(1+DR)^3)+ (NPVCY4/(1+DR)^4)+ (NPVCY5/(1+DR)^5);
+		var NPVB_C= NPVBenefits - NPVCosts;
+		var B_C = NPVBenefits / NPVCosts;
+		var PaybackPeriod = (NPVAST / NPVBY) * 12;
+		
+		
+		var Average = AvCC * trucks;
+		var ARC = AvRCC * trucks;
+		var AADC= AdCC * trucks;
+		
+		
+		$("#NPVBenefits").text(NPVBenefits.toFixed(2));
+		$("#NPVCosts").text(NPVCosts.toFixed(2));
+		$("#NPVB_C").text(NPVB_C.toFixed(2));
+		$("#B_C").text(B_C.toFixed(2));
+		$("#PaybackPeriod").text(PaybackPeriod.toFixed(2));
+		
+		$("#Average").text(Average.toFixed(2));
+		$("#ARC").text(ARC.toFixed(2));
+		$("#AADC").text(AADC.toFixed(2));
+		$("#B_C2").html(B_C.toFixed(2));
+		$("#PaybackPeriod2").html(PaybackPeriod.toFixed(2));
+		
+		
+	}
+	
+	function toPoint(percent){
+		var str=percent.replace("%","");
+		str= str/100;
+		return str;
+	}
+	
+	function clearData(){
+		
+		$(":input").val("");
+		$("select").find("option:first").prop("selected",true);
+	}
+</script>					
+	
+</body>
+</html>
